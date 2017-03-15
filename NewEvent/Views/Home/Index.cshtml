@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>DN Calendar</title>
+
+
+</head>
+<body>
+    <div id="dncalendar-container">
+    </div>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            
+            var currentTime = new Date();
+            var fullDate = new Date()
+            var eventnotes = [
+
+
+                    { "date": "2017-03-2", "note": ["Natal"] },
+                    { "date": "2017-03-2", "note": ["meeting"] },
+                            { "date": "2017-03-7", "note": ["Tahun Baru"] },
+                            { "date": "2017-03-10", "note": ["New Year Nepal"] }
+            ];
+         
+
+            
+            var my_calendar = $("#dncalendar-container").dnCalendar({
+
+                monthNames: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+                monthNamesShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Agu', 'Sep', 'Oct', 'Nov', 'Dec'],
+                dayNames: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+                dayNamesShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+                dataTitles: { defaultDate: 'default', today: 'shuva din' },
+                notes: eventnotes,
+                showNotes: true,
+                startWeek: 'sunday',
+                dayClick: function (currentTime, view) {
+                   
+
+
+                   eventnotes.push({ "date": (currentTime.getDate()) + " - " + (currentTime.getMonth() + 1) + " - " + currentTime.getFullYear(), "note": my_text });
+               
+
+
+                }
+            });
+
+
+            my_calendar.build();
+
+
+        });
+    </script>
+</body>
+</html>
